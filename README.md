@@ -3,9 +3,9 @@ Random Topics
 
 showing random topics in index and viewtopic pages.
 
-![Screenshot](screenshot1.png)
-![Screenshot](screenshot2.png)
-![Screenshot](screenshot3.png)
+![Screenshot](screenshot1.jpg)
+![Screenshot](screenshot2.jpg)
+![Screenshot](screenshot3.jpg)
 
 Current version
 ==========
