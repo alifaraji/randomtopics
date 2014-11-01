@@ -1,0 +1,34 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_ACP_RANDOMTOPICS_TITLE}</h1>
+
+<form id="acp_board" method="post" action="{U_ACTION}">
+	<fieldset>
+		<dl>
+			<dt><label for="acme_demo_goodbye">{L_ACP_RTOPICS_ACTIVE}</label><br /><span>{L_ACP_RTOPICS_ACTIVE_EXP}</span></dt></dt>
+			<dd><input type="radio" class="radio" name="rtopics_active" value="1" <!-- IF RTOPICS_ACTIVE eq '1' -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp;
+				<input type="radio" class="radio" name="rtopics_active" value="0" <!-- IF RTOPICS_ACTIVE != '1' -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+		<dl>
+			<dt><label for="acme_demo_goodbye">{L_ACP_RTOPICS_INDEX}</label><br /><span>{L_ACP_RTOPICS_INDEX_EXP}</span></dt></dt>
+			<dd><input type="radio" class="radio" name="rtopics_index" value="1" <!-- IF RTOPICS_INDEX eq '1' -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp;
+				<input type="radio" class="radio" name="rtopics_index" value="0" <!-- IF RTOPICS_INDEX != '1' -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+		<dl>
+			<dt><label for="acme_demo_goodbye">{L_ACP_RTOPICS_VIEWTOPIC}</label><br /><span>{L_ACP_RTOPICS_VIEWTOPIC_EXP}</span></dt></dt>
+			<dd><input type="radio" class="radio" name="rtopics_viewtopic" value="1" <!-- IF RTOPICS_VIEWTOPIC eq '1' -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp;
+				<input type="radio" class="radio" name="rtopics_viewtopic" value="0" <!-- IF RTOPICS_VIEWTOPIC != '1' -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+		<dl>
+			<dt><label for="rt_number">{L_ACP_RTOPICS_LIMIT}</label><br /><span>{L_ACP_LIMIT_ACTIVE_EXP}</span></dt>
+			<dd><input type="number" id="rtopics_limit" name="rtopics_limit" min="1" max="100" value="{RTOPICS_LIMIT}" /></dd>
+		</dl>
+		<p class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		</p>
+
+		{S_FORM_TOKEN}
+	</fieldset>
+</form>
+<!-- INCLUDE overall_footer.html -->

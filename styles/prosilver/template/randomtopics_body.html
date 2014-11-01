@@ -1,0 +1,37 @@
+<br />
+	<div class="forumbg">
+		<div class="inner">
+		<ul class="topiclist">
+			<li class="header">
+				<dl class="icon">
+					<dt><div class="list-inner">{L_RANDOM_TOPICS}</div></dt>
+					<dd class="posts">{L_REPLIES}</dd>
+					<dd class="views">{L_VIEWS}</dd>
+					<dd class="lastpost"><span>{L_LAST_POST}</span></dd>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist topics">
+		<!-- BEGIN randomtopics -->
+		<li class="row <!-- IF randomtopics.TOPIC_VIRTUAL_ID is even --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<dl>
+				<dt>
+				<div class="list-inner">
+				<!-- IF not S_IS_BOT --><a href="{randomtopics.U_VIEW_TOPIC}" class="topictitle">{randomtopics.TOPIC_TITLE} {randomtopics.TOPIC_ID}</a><br>
+					<div class="responsive-show">
+						{L_LAST_POST} {L_POST_BY_AUTHOR} {randomtopics.TOPIC_FIRST_POSTER_FULL} &laquo; {randomtopics.TOPIC_TIME}
+					</div>
+				<!-- ENDIF -->
+				</div>
+				</dt>
+				<dd class="posts">{randomtopics.FORUM_NAME}<dfn>{L_REPLIES}</dfn></dd>
+				<dd class="views">{randomtopics.TOPIC_VIEWS} <dfn>{L_VIEWS}</dfn></dd>
+				<dd class="lastpost"><span><dfn>{L_LAST_POST} </dfn>{L_POST_BY_AUTHOR} {randomtopics.TOPIC_LAST_POST_AUTHOR_FULL}
+				<!-- IF not S_IS_BOT --><a href="{randomtopics.U_LAST_POST}" title="{L_GOTO_LAST_POST}">{LAST_POST_IMG}</a> <!-- ENDIF --><br />{randomtopics.TOPIC_LAST_POST_TIME}</span>
+				</dd>
+			</dl>
+		</li>
+		<!-- END randomtopics -->
+		</ul>
+		</div>
+	</div>
