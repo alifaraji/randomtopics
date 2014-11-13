@@ -3,7 +3,7 @@
     "type": "phpbb-extension",
     "description": "Showing random topics on index page",
     "homepage": "https://github.com/alifaraji/randomtopics",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "time": "2014-10-30",
     "license": "GPL-2.0",
     "authors": [
@@ -24,9 +24,9 @@
              "phpbb/phpbb": "3.1.*@dev"
         },
         "version-check": {
-            "host": "github.com",
-            "directory": "/alifaraji/randomtopics",
-            "filename": "version.json"
+            "host": "phpbbpersian.ir",
+            "directory": "/phpbbpersian-extentions",
+            "filename": "randomtopics_version.json"
         }
     }
 }
