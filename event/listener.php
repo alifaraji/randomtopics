@@ -47,6 +47,9 @@ class listener implements EventSubscriberInterface
 	/** @var \phpbb\user */
 	protected $user;
 
+	/** @var \phpbb\auth\auth */
+	protected $auth;
+
 	/** @var string phpBB root path */
 	protected $root_path;
 
@@ -54,13 +57,14 @@ class listener implements EventSubscriberInterface
 	protected $phpEx;
 	
 
-	public function __construct(\phpbb\controller\helper $helper, \phpbb\template\template $template, \phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, \phpbb\user $user, $root_path, $phpEx)
+	public function __construct(\phpbb\controller\helper $helper, \phpbb\template\template $template, \phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, \phpbb\user $user, \phpbb\auth\auth $auth, $root_path, $phpEx)
 	{
 		$this->helper = $helper;
 		$this->template = $template;
 		$this->config = $config;
 		$this->db = $db;
 		$this->user = $user;
+		$this->auth = $auth;
 		$this->root_path = $root_path;
 		$this->phpEx = $phpEx;
 	}
@@ -90,10 +94,11 @@ class listener implements EventSubscriberInterface
 
 	public function get_topic_list()
 	{
-		$sql = 'SELECT topic_title, topic_time, topic_views, topic_poster, topic_first_poster_name, topic_first_poster_colour, topic_last_poster_id, topic_last_poster_name, topic_last_poster_colour, topic_last_post_time, topic_last_post_id, topic_id, forum_id
+		$sql = 'SELECT forum_id, topic_title, topic_time, topic_views, topic_poster, topic_first_poster_name, topic_first_poster_colour, topic_last_poster_id, topic_last_poster_name, topic_last_poster_colour, topic_last_post_time, topic_last_post_id, topic_id, forum_id
 				FROM ' . TOPICS_TABLE . ' AS data
 				JOIN (SELECT (FLOOR(RAND() * (SELECT MAX(topic_id) FROM '.TOPICS_TABLE.'))) AS random_id) as random
-				WHERE data.topic_id >= random.random_id ';
+				WHERE '. $this->db->sql_in_set('forum_id', array_keys($this->auth->acl_getf('f_read', true))) .'
+					AND data.topic_id >= random.random_id';
 
 		$limit = $this->config['rtopics_limit'];	
 		$result = $this->db->sql_query_limit($sql, $limit);
