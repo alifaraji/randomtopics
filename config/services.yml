@@ -1,14 +1,15 @@
 services:
     alifaraji.randomtopics.listener:
         class: alifaraji\randomtopics\event\listener
+        shared: false
         arguments:
-            - @controller.helper
-            - @template
-            - @config
-            - @dbal.conn
-            - @user
-            - @auth
-            - %core.root_path%
-            - %core.php_ext%
+            - '@controller.helper'
+            - '@template'
+            - '@config'
+            - '@dbal.conn'
+            - '@user'
+            - '@auth'
+            - '%core.root_path%'
+            - '%core.php_ext%'
         tags:
             - { name: event.listener }
