@@ -9,7 +9,7 @@ showing random topics in index and viewtopic pages.
 
 Current version
 ==========
-1.0.0 DEV
+2.0.0 DEV
 
 Installation
 ==========
