@@ -107,7 +107,7 @@ class listener implements EventSubscriberInterface
 
 		while ($row = $this->db->sql_fetchrow($result))
 		{
-			if($row[topic_visibility] != 2) {
+			if($row['topic_visibility'] != 2) {
 			$this->template->assign_block_vars('randomtopics', array(
 				'TOPIC_TITLE'					=> censor_text($row['topic_title']),
 				'TOPIC_VIRTUAL_ID'				=> $total++,
